@@ -11,14 +11,12 @@ Future main() async {
   runApp(
     GetMaterialApp(
       home: Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              const GameWidget.controlled(
-                gameFactory: FlappyGame.new,
-              ),
-            ],
-          ),
+        body: Stack(
+          children: [
+            const GameWidget.controlled(
+              gameFactory: FlappyGame.new,
+            ),
+          ],
         ),
       ),
     ),

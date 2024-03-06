@@ -1,6 +1,6 @@
 class SpriteDimensions {
-  static double horizontWidth = 144.0;
-  static double horizontHeight = 256.0;
+  static double horizontalWidth = 144.0;
+  static double horizontalHeight = 256.0;
   static double birdWidth = 17.0;
   static double birdHeight = 12.0;
   static double bottomWidth = 168.0;
@@ -11,9 +11,11 @@ class SpriteDimensions {
   static double tubeHeight = 160.0;
   static double numberWidth = 12.0;
   static double numberHeight = 18.0;
+  static double tapW = 59.0;
+  static double tapH = 32.0;
 }
 
-class SpritesPostions {
+class SpritesPositions {
   static double birdSprite1X = 3.0;
   static double birdSprite1Y = 491.0;
   static double birdSprite2X = 31.0;
@@ -44,8 +46,10 @@ class SpritesPostions {
   static double seventhNumberY = 184.0;
   static double eighthNumberX = 320.0;
   static double eighthNumberY = 184.0;
-  static double ninethNumberX = 334.0;
-  static double ninethNumberY = 184.0;
+  static double ninthNumberX = 334.0;
+  static double ninthNumberY = 184.0;
+  static double tapX = 292.0;
+  static double tapY = 110.0;
 }
 
 class ComponentDimensions {
@@ -58,14 +62,4 @@ class ComponentDimensions {
   static double birdHeight = 36;
   static double numberWidth = 36;
   static double numberHeight = 54;
-}
-
-class ComponentPositions {
-  static double birdX = 80;
-  static double birdY = 250;
-}
-
-class Speed {
-  static double GroundSpeed = 120;
-  static double GameSpeed = 1.0;
 }

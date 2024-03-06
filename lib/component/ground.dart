@@ -1,19 +1,20 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
 import '../shared/config.dart';
 import 'game.dart';
 
-class Wall extends SpriteComponent with HasGameRef<FlappyGame> {
+class Ground extends SpriteComponent with HasGameRef<FlappyGame> {
   final double startX;
 
-  Wall({required this.startX});
+  Ground({required this.startX});
   @override
   FutureOr<void> onLoad() {
     sprite = game.getGameSprite(
-      SpritesPostions.bottomX,
-      SpritesPostions.bottomY,
+      SpritesPositions.bottomX,
+      SpritesPositions.bottomY,
       SpriteDimensions.bottomWidth,
       SpriteDimensions.bottomHeight,
     );
@@ -21,6 +22,7 @@ class Wall extends SpriteComponent with HasGameRef<FlappyGame> {
       startX,
       game.camera.visibleWorldRect.bottom - SpriteDimensions.bottomHeight,
     );
+    add(RectangleHitbox(collisionType: CollisionType.passive));
     return super.onLoad();
   }
 

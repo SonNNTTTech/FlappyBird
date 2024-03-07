@@ -12,9 +12,17 @@ Future main() async {
     GetMaterialApp(
       home: Scaffold(
         body: Stack(
+          alignment: Alignment.topCenter,
           children: [
             const GameWidget.controlled(
               gameFactory: FlappyGame.new,
+            ),
+            Positioned(
+              top: 32,
+              child: Obx(() => Text(
+                    vmd.score.value.toString(),
+                    style: const TextStyle(fontSize: 80, color: Colors.white),
+                  )),
             ),
           ],
         ),

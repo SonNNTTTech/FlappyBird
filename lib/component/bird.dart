@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/component/ground.dart';
 import 'package:flappy_bird/component/tube.dart';
 import 'package:flappy_bird/shared/enum.dart';
@@ -92,13 +93,18 @@ class Bird extends SpriteAnimationComponent
   }
 
   void jump() {
-    if (game.gameState == GameState.playing) speed.y = -600;
+    if (game.gameState == GameState.playing) {
+      FlameAudio.play('wing.wav');
+      speed.y = -600;
+    }
   }
 
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    if (game.gameState == GameState.gameOver) return;
     if (other is Ground || other is Tube) {
-      game.gameState = GameState.gameOver;
+      FlameAudio.play('hit.wav');
+      game.gameOver();
       playing = false;
     }
     super.onCollision(intersectionPoints, other);

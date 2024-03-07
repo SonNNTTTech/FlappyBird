@@ -4,6 +4,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
 import '../shared/config.dart';
+import '../shared/enum.dart';
 import 'game.dart';
 
 class Ground extends SpriteComponent with HasGameRef<FlappyGame> {
@@ -28,9 +29,12 @@ class Ground extends SpriteComponent with HasGameRef<FlappyGame> {
 
   @override
   void update(double dt) {
-    if (toAbsoluteRect().right < game.camera.visibleWorldRect.left) {
+    super.update(dt);
+    if (game.gameState == GameState.gameOver ||
+        game.gameState == GameState.pause) return;
+    if (toAbsoluteRect().right < game.camera.visibleWorldRect.left &&
+        toAbsoluteRect().right + 1 > game.camera.visibleWorldRect.left) {
       removeFromParent();
     }
-    super.update(dt);
   }
 }
